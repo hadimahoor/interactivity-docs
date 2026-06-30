@@ -1,0 +1,40 @@
+{
+    "name": "interactivity-docs/interactivity-docs",
+    "description": "An interactive WordPress documentation plugin built with the Interactivity API.",
+    "type": "wordpress-plugin",
+    "license": "GPL-2.0-or-later",
+    "keywords": [
+        "wordpress",
+        "plugin",
+        "interactivity-api",
+        "documentation",
+        "blocks"
+    ],
+    "authors": [
+        {
+            "name": "Hadi Khodayari",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=8.0"
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "^3.10"
+    },
+    "autoload": {
+        "psr-4": {
+            "InteractivityDocs\\": "src/"
+        }
+    },
+    "config": {
+        "sort-packages": true,
+        "optimize-autoloader": true
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "scripts": {
+        "lint": "phpcs",
+        "lint:fix": "phpcbf"
+    }
+}

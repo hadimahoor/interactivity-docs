@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<ruleset name="InteractivityDocs">
+    <description>PSR-12 coding standard for the Interactivity Docs plugin.</description>
+
+    <!-- Scan only the PHP source of the plugin. -->
+    <file>src</file>
+    <file>interactivity-docs.php</file>
+
+
+
+    <!-- Ignore build artifacts and dependencies. -->
+    <exclude-pattern>*/vendor/*</exclude-pattern>
+    <exclude-pattern>*/node_modules/*</exclude-pattern>
+    <exclude-pattern>*/build/*</exclude-pattern>
+
+    <!-- Show progress and use colors; report sniff codes for easier fixing. -->
+    <arg value="ps"/>
+    <arg name="colors"/>
+    <arg name="extensions" value="php"/>
+
+    <config name="ignore_warnings_on_exit" value="1"/>
+
+    <!-- Base standard. -->
+<rule ref="PSR12">
+    <exclude name="PSR1.Files.SideEffects"/>
+</rule>
+
+    <rule ref="Generic.Files.LineLength">
+        <exclude-pattern>*/templates/*</exclude-pattern>
+        <properties>
+            <property name="lineLimit" value="180"/>
+            <property name="absoluteLineLimit" value="0"/>
+        </properties>
+    </rule>
+
+<rule ref="Internal.NoCodeFound">
+    <exclude-pattern>*/templates/*</exclude-pattern>
+</rule>
+
+
+
+
+
+
+
+</ruleset>

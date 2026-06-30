@@ -1,0 +1,200 @@
+/**
+ * Card Default Styles
+ * Styles specific to the default card layout template
+ */
+
+ @use "baseline" as *;
+
+// Main card container
+.wp-block-post {
+    list-style: none;
+}
+
+// Card wrapper and layout
+.wp-container-core-post-template-is-layout-thesis {
+    gap: var(--wp--preset--spacing--8);
+
+    .wp-container-core-columns-is-layout-thesis {
+        flex-wrap: nowrap;
+        gap: var(--wp--preset--spacing--8) var(--wp--preset--spacing--8);
+
+        .wp-container-core-group-is-layout-1-thesis {
+            gap: var(--wp--preset--spacing--4);
+            flex-direction: column;
+            align-items: stretch;
+            justify-content: space-between;
+        }
+
+        .wp-container-core-group-is-layout-2-thesis {
+            gap: var(--wp--preset--spacing--3-5);
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .wp-container-core-group-is-layout-3-thesis {
+            gap: var(--wp--preset--spacing--2);
+            display: flex;
+            align-items: center;
+
+            span {
+                font-size: var(--wp--preset--font-size--small);
+                color: var(--wp--preset--color--contrast-2);
+            }
+        }
+    }
+
+    .wp-container-core-column-is-layout-thesis > * {
+        margin-block-start: 0;
+        margin-block-end: 0;
+    }
+}
+
+.wp-container-content-thesis {
+    flex-grow: 1;
+    min-height: 100%;
+}
+
+// Card columns wrapper
+.wp-block-columns {
+    align-items: normal !important;
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap !important;
+
+    &.has-border-color {
+        border-style: solid;
+        border-width: 1px;
+        border-radius: 18px;
+    }
+
+    &.has-shadcn-border-border-color {
+        border-color: var(--wp--preset--color--shadcn-border-border);
+    }
+
+    &.has-shadcn-background-background-color {
+        background-color: var(--wp--preset--color--shadcn-background-background);
+    }
+
+    &.has-background {
+        padding: var(--wp--preset--spacing--3-5);
+    }
+
+    @include atSmallMedium {
+        height: 100%;
+    }
+
+    @media (min-width: 782px) {
+        flex-wrap: nowrap !important;
+    }
+}
+
+.wp-block-column {
+    flex-grow: 1;
+    min-width: 0;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    flex-basis: 100%;
+
+    @media (min-width: 782px) {
+        flex-basis: 0;
+        flex-grow: 1;
+    }
+}
+
+// Taxonomy/Category styles
+.wp-block-post-terms.is-style-pill {
+    display: inline-flex;
+    flex-wrap: wrap;
+    row-gap: 0.5rem;
+    column-gap: 0.125rem;
+    margin-bottom: 10px;
+}
+
+:root :where(.wp-block-post-terms) {
+    font-size: var(--wp--preset--font-size--xs);
+}
+
+.wp-block-post-terms {
+    box-sizing: border-box;
+
+    .wp-block-post-terms__separator {
+        white-space: pre-wrap;
+    }
+}
+
+:root :where(.wp-block-post-terms a:where(:not(.wp-element-button))) {
+    text-decoration: none;
+}
+
+.wp-block-post-terms.is-style-pill a,
+.wp-block-post-terms.is-style-pill span:not([class], [data-rich-text-placeholder]) {
+    display: inline-block;
+    background-color: var(--wp--preset--color--shadcn-accent);
+    padding: 0.25rem 0.625rem;
+    border-radius: 99px;
+    font-weight: 500;
+    max-width: 100px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.wp-block-post-terms.is-style-pill a:hover {
+    background-color: var(--wp--preset--color--shadcn-accent-lighter);
+    text-decoration: none;
+    max-width: 300px;
+}
+
+// Post title styles
+.wp-block-post-title {
+    box-sizing: border-box;
+    word-break: break-word;
+
+    &.has-base-font-size {
+        font-size: var(--wp--preset--font-size--base);
+    }
+
+    &.is-style-line-clamp-2 {
+        display: -webkit-box;
+        overflow: hidden;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        font-style: normal;
+        font-weight: 600;
+        margin-top: 0;
+        margin-bottom: 0;
+
+        a {
+            display: -webkit-box;
+            overflow: hidden;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+        }
+    }
+
+    svg {
+        display: inline-block;
+        vertical-align: middle;
+        margin-inline-end: 0.5rem;
+    }
+}
+
+// Avatar styles
+.wp-block-avatar {
+    line-height: 0;
+    box-sizing: border-box;
+
+    img {
+        box-sizing: border-box;
+    }
+}
+
+:root :where(.wp-block-avatar img) {
+    border-radius: 99px;
+}
+
+// Links
+a:where(:not(.wp-element-button)) {
+    color: var(--wp--preset--color--shadcn-foreground);
+    text-decoration: underline;
+}

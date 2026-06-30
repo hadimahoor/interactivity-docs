@@ -1,0 +1,53 @@
+@use "baseline" as *;
+
+// ─── Person Card ────────────────────────────────────────
+.arad-card-person {
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 24px;
+  padding: var(--wp--preset--spacing--4);
+  background-color: var(--wp--preset--color--base-2);
+  border-color: var(--wp--preset--color--shadcn-border);
+
+  // ─── Avatar ───────────────────────────────────────────
+  .avatar-circle {
+    border-radius: 99px;
+    min-height: 80px;
+    width: 80px;
+    background-color: var(--wp--preset--color--base);
+    overflow: hidden;
+
+    figure {
+      aspect-ratio: 1;
+      width: 80px;
+      height: 80px;
+    }
+
+    img {
+      border-radius: 99px;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  // ─── Title ────────────────────────────────────────────
+  h2 {
+    @extend %line-clamp-2;
+    text-align: center;
+  }
+
+  // ─── Role Links ───────────────────────────────────────
+  .role-link {
+    @extend %line-clamp-2;
+    display: inline-block;
+    margin: 0.25rem auto 0;
+    font-size: 0.85rem;
+    line-height: 1.25rem;
+  }
+
+  // ─── Counters ─────────────────────────────────────────
+  .counter-wrapper {
+    @extend %counter-wrapper;
+  }
+}

@@ -1,0 +1,232 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Interactivity Papers\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-12-29 20:59+0000\n"
+"PO-Revision-Date: 2024-12-29 20:59+0000\n"
+"Last-Translator: \n"
+"Language-Team: فارسی\n"
+"Language: fa_IR\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.6.11; wp-6.7.1\n"
+"X-Domain: aradblocktheme"
+
+#: lib/university-post-types.php:181
+msgid " جدید اضافه کن"
+msgstr ""
+
+#: lib/university-post-types.php:175 lib/university-post-types.php:176
+msgid " ها"
+msgstr ""
+
+#. Description of the plugin
+msgid "An interactive block with the Interactivity API"
+msgstr ""
+
+#: build/blocks/interactive/reading-progress-block/block.json:1
+#: src/blocks/interactive/reading-progress-block/block.json:1
+msgctxt "block description"
+msgid "A block that displays a reading progress section."
+msgstr ""
+
+#: build/blocks/interactive/docs-archive/block.json:1
+#: build/blocks/interactive/filter/block.json:1
+#: build/blocks/interactive/single-content/block.json:1
+#: build/blocks/non-interactive/docs-counter/block.json:1
+#: build/blocks/non-interactive/single-content/block.json:1
+#: build/blocks/non-interactive/taxonomies/block.json:1
+#: src/blocks/interactive/docs-archive/block.json:1
+#: src/blocks/interactive/filter/block.json:1
+#: src/blocks/interactive/single-content/block.json:1
+#: src/blocks/non-interactive/docs-counter/block.json:1
+#: src/blocks/non-interactive/single-content/block.json:1
+#: src/blocks/non-interactive/taxonomies/block.json:1
+msgctxt "block description"
+msgid "An interactive block with the Interactivity API"
+msgstr ""
+
+#: build/blocks/interactive/reading-progress-block/block.json:1
+#: src/blocks/interactive/reading-progress-block/block.json:1
+msgctxt "block title"
+msgid "arad block theme Reading Progress"
+msgstr ""
+
+#: build/blocks/interactive/docs-archive/block.json:1
+#: src/blocks/interactive/docs-archive/block.json:1
+msgctxt "block title"
+msgid "آرشیو موجودیت ها"
+msgstr ""
+
+#: build/blocks/non-interactive/docs-counter/block.json:1
+#: src/blocks/non-interactive/docs-counter/block.json:1
+msgctxt "block title"
+msgid "شمارنده موجودیت"
+msgstr ""
+
+#: build/blocks/interactive/filter/block.json:1
+#: src/blocks/interactive/filter/block.json:1
+msgctxt "block title"
+msgid "فیلتر صفحه آرشیو"
+msgstr ""
+
+#: build/blocks/interactive/single-content/block.json:1
+#: build/blocks/non-interactive/single-content/block.json:1
+#: src/blocks/interactive/single-content/block.json:1
+#: src/blocks/non-interactive/single-content/block.json:1
+msgctxt "block title"
+msgid "محتوای موجودیت"
+msgstr ""
+
+#: build/blocks/non-interactive/taxonomies/block.json:1
+#: src/blocks/non-interactive/taxonomies/block.json:1
+msgctxt "block title"
+msgid "نمایش طبقه بندی ها"
+msgstr ""
+
+#: lib/university-post-types.php:220
+msgid "book"
+msgstr ""
+
+#: build/blocks/interactive/docs-archive/render.php:452
+#: src/blocks/interactive/docs-archive/render.php:452
+msgid "Book Count"
+msgstr ""
+
+#: lib/university-post-types.php:236
+msgid "booktype"
+msgstr ""
+
+#: lib/university-post-types.php:238
+msgid "contract"
+msgstr ""
+
+#: lib/university-post-types.php:239
+msgid "degree"
+msgstr ""
+
+#: lib/university-post-types.php:229
+msgid "department"
+msgstr ""
+
+#: lib/university-post-types.php:767
+msgid "faculty"
+msgstr ""
+
+#: lib/university-post-types.php:768
+msgid "field"
+msgstr ""
+
+#: lib/university-post-types.php:240
+msgid "gender"
+msgstr ""
+
+#. Name of the plugin
+msgid "Interactivity Papers"
+msgstr ""
+
+#: lib/university-post-types.php:231
+msgid "language"
+msgstr ""
+
+#: lib/university-post-types.php:233
+msgid "level"
+msgstr ""
+
+#: lib/university-post-types.php:228
+msgid "magazine"
+msgstr ""
+
+#: lib/university-post-types.php:222
+msgid "meeting"
+msgstr ""
+
+#: build/blocks/interactive/docs-archive/render.php:472
+#: src/blocks/interactive/docs-archive/render.php:472
+msgid "Meeting Count"
+msgstr ""
+
+#: build/blocks/interactive/docs-archive/render.php:391
+#: src/blocks/interactive/docs-archive/render.php:391
+msgid "name"
+msgstr ""
+
+#: lib/university-post-types.php:237
+msgid "origin"
+msgstr ""
+
+#: lib/university-post-types.php:219
+msgid "paper"
+msgstr ""
+
+#: build/blocks/interactive/docs-archive/render.php:413
+#: src/blocks/interactive/docs-archive/render.php:413
+msgid "Paper Count"
+msgstr ""
+
+#: lib/university-post-types.php:230
+msgid "papertype"
+msgstr ""
+
+#: lib/university-post-types.php:221
+msgid "person"
+msgstr ""
+
+#: lib/university-post-types.php:235
+msgid "publication"
+msgstr ""
+
+#: lib/university-post-types.php:241
+msgid "role"
+msgstr ""
+
+#: lib/university-post-types.php:234
+msgid "situation"
+msgstr ""
+
+#: build/blocks/interactive/docs-archive/render.php:353
+#: src/blocks/interactive/docs-archive/render.php:353
+msgid "sort"
+msgstr ""
+
+#: build/blocks/interactive/filter/render.php:34
+#: src/blocks/interactive/filter/render.php:34
+msgid "tag"
+msgstr ""
+
+#. Author of the plugin
+msgid "The WordPress Contributors"
+msgstr ""
+
+#: lib/university-post-types.php:218
+msgid "thesis"
+msgstr ""
+
+#: build/blocks/interactive/docs-archive/render.php:433
+#: src/blocks/interactive/docs-archive/render.php:433
+msgid "Thesis Count"
+msgstr ""
+
+#: lib/university-post-types.php:232
+msgid "year"
+msgstr ""
+
+#: build/blocks/interactive/docs-archive/render.php:109
+#: build/blocks/interactive/docs-archive/render.php:129
+#: src/blocks/interactive/docs-archive/render.php:109
+#: src/blocks/interactive/docs-archive/render.php:129
+msgid "تالیف شده"
+msgstr ""
+
+#: build/blocks/interactive/docs-archive/render.php:115
+#: src/blocks/interactive/docs-archive/render.php:115
+msgid "راهنمایی شده"
+msgstr ""
+
+#: build/blocks/interactive/docs-archive/render.php:122
+#: src/blocks/interactive/docs-archive/render.php:122
+msgid "مشاوره شده"
+msgstr ""

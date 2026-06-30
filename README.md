@@ -52,7 +52,7 @@ on the front end.
 ### End-user (ZIP)
 
 1. Download the latest `interactivity-docs.zip` from
-   [Releases](https://github.com/hadikhodayari/interactivity-docs/releases).
+   [Releases](https://github.com/hadimahoor/interactivity-docs/releases).
 2. In WordPress admin go to **Plugins → Add New → Upload Plugin**.
 3. Upload the ZIP and click **Activate**.
 4. Make sure **Advanced Custom Fields** is installed and active.
@@ -62,7 +62,7 @@ on the front end.
 
 ### Developer (Clone)
 ```bash
-git clone https://github.com/hadikhodayari/interactivity-docs.git \
+git clone https://github.com/hadimahoor/interactivity-docs.git \
   wp-content/plugins/interactivity-docs
 
 cd wp-content/plugins/interactivity-docs
@@ -169,10 +169,10 @@ interactivity-docs/
 ├── actions/            # Store actions
 │   ├── core.js
 │   ├── menuActions.js
-│   ├── paginationActions.js
-│   ├── removeFilter.js
-│   ├── selectFilter.js
-│   └── termActions.js
+│   ├── paginationAction.js
+│   ├── removeFilterAction.js
+│   ├── selectFilterAction.js
+│   └── termAction.js
 │
 ├── callbacks/          # Interactivity API lifecycle callbacks
 │   ├── lifecycleCallbacks.js
@@ -272,9 +272,6 @@ interactivity-docs/
 
 ---
 
-*Built by [Hadi Khodayari](https://github.com/hadikhodayari)*
+*Built by [Hadi Khodayari](https://github.com/hadimahoor)*
 
 
-Source: tree merged from `plugin-dir.txt` (full root + `src/` including `Database/`, `Integration/AcfManager.php`, `Repository/`, `Rest/`, `Sync/`, `Support/`, `Taxonomies/`, and the four `dropdown-menu-*-block/` TS folders).
-
-One note worth your call: the `actions/` folder in `plugin-dir.txt` has both pairs like `paginationAction.js`/`paginationActions.js` and `termAction.js`/`termActions.js`. Looks like leftover duplicates — I used the plural names in the README. Want me to flag those for cleanup before you push?

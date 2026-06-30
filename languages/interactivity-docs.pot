@@ -1,233 +1,315 @@
-#, fuzzy
+# Copyright (C) 2026 
+# This file is distributed under the same license as the Interactivity Docs plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: Interactivity Papers\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-29 20:59+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Project-Id-Version: Interactivity Docs 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/interactivity-docs\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: \n"
-"Language: \n"
-"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Loco https://localise.biz/\n"
-"X-Loco-Version: 2.6.11; wp-6.7.1\n"
-"X-Domain: aradblocktheme"
+"POT-Creation-Date: 2026-06-30T20:15:25+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: interactivity-docs\n"
 
-#: lib/university-post-types.php:181
-msgid " جدید اضافه کن"
-msgstr ""
-
-#: lib/university-post-types.php:175 lib/university-post-types.php:176
-msgid " ها"
+#. Plugin Name of the plugin
+#: interactivity-docs.php
+msgid "Interactivity Docs"
 msgstr ""
 
 #. Description of the plugin
-msgid "An interactive block with the Interactivity API"
+#: interactivity-docs.php
+msgid "Documentation archive built on the WordPress Interactivity API."
 msgstr ""
 
-#: build/blocks/interactive/reading-progress-block/block.json:1
-#: src/blocks/interactive/reading-progress-block/block.json:1
-msgctxt "block description"
-msgid "A block that displays a reading progress section."
+#: build/blocks/interactive/docs-archive/render.php:128
+#: src/blocks/interactive/docs-archive/render.php:128
+msgid "Invalid post type."
 msgstr ""
 
-#: build/blocks/interactive/docs-archive/block.json:1
-#: build/blocks/interactive/filter/block.json:1
-#: build/blocks/interactive/single-content/block.json:1
-#: build/blocks/non-interactive/docs-counter/block.json:1
-#: build/blocks/non-interactive/single-content/block.json:1
-#: build/blocks/non-interactive/taxonomies/block.json:1
-#: src/blocks/interactive/docs-archive/block.json:1
-#: src/blocks/interactive/filter/block.json:1
-#: src/blocks/interactive/single-content/block.json:1
-#: src/blocks/non-interactive/docs-counter/block.json:1
-#: src/blocks/non-interactive/single-content/block.json:1
-#: src/blocks/non-interactive/taxonomies/block.json:1
-msgctxt "block description"
-msgid "An interactive block with the Interactivity API"
+#: src/blocks/interactive/docs-archive/templates/cards/card-default.php:56
+msgid "Author"
 msgstr ""
 
-#: build/blocks/interactive/reading-progress-block/block.json:1
-#: src/blocks/interactive/reading-progress-block/block.json:1
-msgctxt "block title"
-msgid "arad block theme Reading Progress"
+#: src/blocks/interactive/docs-archive/templates/components/person-actions.php:20
+#: src/blocks/interactive/docs-archive/templates/components/post-actions.php:28
+msgid "Like"
 msgstr ""
 
-#: build/blocks/interactive/docs-archive/block.json:1
-#: src/blocks/interactive/docs-archive/block.json:1
-msgctxt "block title"
-msgid "آرشیو موجودیت ها"
+#: src/blocks/interactive/docs-archive/templates/components/person-actions.php:34
+#: src/blocks/interactive/docs-archive/templates/components/post-actions.php:75
+msgid "Save"
 msgstr ""
 
-#: build/blocks/non-interactive/docs-counter/block.json:1
-#: src/blocks/non-interactive/docs-counter/block.json:1
-msgctxt "block title"
-msgid "شمارنده موجودیت"
+#: src/blocks/interactive/docs-archive/templates/components/person-counters.php:17
+#: build/blocks/interactive/docs-archive/index.js:1
+#: src/blocks/interactive/docs-archive/edit.js:569
+msgid "Papers"
 msgstr ""
 
-#: build/blocks/interactive/filter/block.json:1
-#: src/blocks/interactive/filter/block.json:1
-msgctxt "block title"
-msgid "فیلتر صفحه آرشیو"
+#: src/blocks/interactive/docs-archive/templates/components/person-counters.php:20
+#: build/blocks/interactive/docs-archive/index.js:1
+#: src/blocks/interactive/docs-archive/edit.js:570
+msgid "Books"
 msgstr ""
 
-#: build/blocks/interactive/single-content/block.json:1
-#: build/blocks/non-interactive/single-content/block.json:1
-#: src/blocks/interactive/single-content/block.json:1
-#: src/blocks/non-interactive/single-content/block.json:1
-msgctxt "block title"
-msgid "محتوای موجودیت"
+#: src/blocks/interactive/docs-archive/templates/components/post-actions.php:62
+msgid "Reading time"
 msgstr ""
 
-#: build/blocks/non-interactive/taxonomies/block.json:1
-#: src/blocks/non-interactive/taxonomies/block.json:1
-msgctxt "block title"
-msgid "نمایش طبقه بندی ها"
+#: src/blocks/interactive/docs-archive/templates/components/post-actions.php:64
+msgid "min read"
 msgstr ""
 
-#: lib/university-post-types.php:220
-msgid "book"
+#: src/blocks/interactive/docs-archive/templates/components/post-actions.php:67
+msgid "min"
 msgstr ""
 
-#: build/blocks/interactive/docs-archive/render.php:452
-#: src/blocks/interactive/docs-archive/render.php:452
-msgid "Book Count"
+#: src/blocks/interactive/docs-archive/templates/layout/filters.php:48
+#, php-format
+msgid "Remove %s filter"
 msgstr ""
 
-#: lib/university-post-types.php:236
-msgid "booktype"
+#: src/blocks/interactive/docs-archive/templates/layout/filters.php:106
+msgid "Sort"
 msgstr ""
 
-#: lib/university-post-types.php:238
-msgid "contract"
+#: src/blocks/interactive/docs-archive/templates/layout/filters.php:124
+msgid "Sort by name"
 msgstr ""
 
-#: lib/university-post-types.php:239
-msgid "degree"
+#: src/blocks/interactive/docs-archive/templates/layout/filters.php:126
+msgid "Name"
 msgstr ""
 
-#: lib/university-post-types.php:229
-msgid "department"
+#: src/blocks/interactive/docs-archive/templates/layout/filters.php:137
+msgid "Sort by paper count"
 msgstr ""
 
-#: lib/university-post-types.php:767
-msgid "faculty"
-msgstr ""
-
-#: lib/university-post-types.php:768
-msgid "field"
-msgstr ""
-
-#: lib/university-post-types.php:240
-msgid "gender"
-msgstr ""
-
-#. Name of the plugin
-msgid "Interactivity Papers"
-msgstr ""
-
-#: lib/university-post-types.php:231
-msgid "language"
-msgstr ""
-
-#: lib/university-post-types.php:233
-msgid "level"
-msgstr ""
-
-#: lib/university-post-types.php:228
-msgid "magazine"
-msgstr ""
-
-#: lib/university-post-types.php:222
-msgid "meeting"
-msgstr ""
-
-#: build/blocks/interactive/docs-archive/render.php:472
-#: src/blocks/interactive/docs-archive/render.php:472
-msgid "Meeting Count"
-msgstr ""
-
-#: build/blocks/interactive/docs-archive/render.php:391
-#: src/blocks/interactive/docs-archive/render.php:391
-msgid "name"
-msgstr ""
-
-#: lib/university-post-types.php:237
-msgid "origin"
-msgstr ""
-
-#: lib/university-post-types.php:219
-msgid "paper"
-msgstr ""
-
-#: build/blocks/interactive/docs-archive/render.php:413
-#: src/blocks/interactive/docs-archive/render.php:413
+#: src/blocks/interactive/docs-archive/templates/layout/filters.php:139
 msgid "Paper Count"
 msgstr ""
 
-#: lib/university-post-types.php:230
-msgid "papertype"
+#: src/blocks/interactive/docs-archive/templates/layout/filters.php:149
+msgid "Sort by book count"
 msgstr ""
 
-#: lib/university-post-types.php:221
-msgid "person"
+#: src/blocks/interactive/docs-archive/templates/layout/filters.php:151
+msgid "Book Count"
 msgstr ""
 
-#: lib/university-post-types.php:235
-msgid "publication"
+#: src/Integration/AcfManager.php:48
+msgid "Interactivity Docs requires the Advanced Custom Fields plugin to be installed and active."
 msgstr ""
 
-#: lib/university-post-types.php:241
-msgid "role"
+#: build/blocks/interactive/docs-archive/index.js:1
+#: src/blocks/interactive/docs-archive/edit.js:44
+msgid "All"
 msgstr ""
 
-#: lib/university-post-types.php:234
-msgid "situation"
+#: build/blocks/interactive/docs-archive/index.js:1
+#: src/blocks/interactive/docs-archive/edit.js:241
+msgid "No options available."
 msgstr ""
 
-#: build/blocks/interactive/docs-archive/render.php:353
-#: src/blocks/interactive/docs-archive/render.php:353
-msgid "sort"
+#: build/blocks/interactive/docs-archive/index.js:1
+#: src/blocks/interactive/docs-archive/edit.js:460
+msgid "Failed to load the list."
 msgstr ""
 
-#: build/blocks/interactive/filter/render.php:34
-#: src/blocks/interactive/filter/render.php:34
-msgid "tag"
+#: build/blocks/interactive/docs-archive/index.js:1
+#: src/blocks/interactive/docs-archive/edit.js:518
+msgid "Failed to load filters."
 msgstr ""
 
-#. Author of the plugin
-msgid "The WordPress Contributors"
+#: build/blocks/interactive/docs-archive/index.js:1
+#: src/blocks/interactive/docs-archive/edit.js:564
+msgid "General Settings"
 msgstr ""
 
-#: lib/university-post-types.php:218
-msgid "thesis"
+#: build/blocks/interactive/docs-archive/index.js:1
+#: src/blocks/interactive/docs-archive/edit.js:566
+msgid "Content Type"
 msgstr ""
 
-#: build/blocks/interactive/docs-archive/render.php:433
-#: src/blocks/interactive/docs-archive/render.php:433
-msgid "Thesis Count"
+#: build/blocks/interactive/docs-archive/index.js:1
+#: src/blocks/interactive/docs-archive/edit.js:571
+msgid "People"
 msgstr ""
 
-#: lib/university-post-types.php:232
-msgid "year"
+#: build/blocks/interactive/docs-archive/index.js:1
+#: src/blocks/interactive/docs-archive/edit.js:577
+msgid "Items per page"
 msgstr ""
 
-#: build/blocks/interactive/docs-archive/render.php:109
-#: build/blocks/interactive/docs-archive/render.php:129
-#: src/blocks/interactive/docs-archive/render.php:109
-#: src/blocks/interactive/docs-archive/render.php:129
-msgid "تالیف شده"
+#: build/blocks/interactive/docs-archive/index.js:1
+#: src/blocks/interactive/docs-archive/edit.js:585
+msgid "Show metadata"
 msgstr ""
 
-#: build/blocks/interactive/docs-archive/render.php:115
-#: src/blocks/interactive/docs-archive/render.php:115
-msgid "راهنمایی شده"
+#: build/blocks/interactive/docs-archive/index.js:1
+#: src/blocks/interactive/docs-archive/edit.js:606
+msgid "Paper Filters"
 msgstr ""
 
-#: build/blocks/interactive/docs-archive/render.php:122
-#: src/blocks/interactive/docs-archive/render.php:122
-msgid "مشاوره شده"
+#: build/blocks/interactive/docs-archive/index.js:1
+#: src/blocks/interactive/docs-archive/edit.js:610
+#: src/blocks/interactive/docs-archive/edit.js:656
+msgid "Year"
+msgstr ""
+
+#: build/blocks/interactive/docs-archive/index.js:1
+#: src/blocks/interactive/docs-archive/edit.js:618
+#: src/blocks/interactive/docs-archive/edit.js:664
+msgid "Language"
+msgstr ""
+
+#: build/blocks/interactive/docs-archive/index.js:1
+#: src/blocks/interactive/docs-archive/edit.js:628
+msgid "Paper Type"
+msgstr ""
+
+#: build/blocks/interactive/docs-archive/index.js:1
+#: src/blocks/interactive/docs-archive/edit.js:638
+msgid "Magazine"
+msgstr ""
+
+#: build/blocks/interactive/docs-archive/index.js:1
+#: src/blocks/interactive/docs-archive/edit.js:652
+msgid "Book Filters"
+msgstr ""
+
+#: build/blocks/interactive/docs-archive/index.js:1
+#: src/blocks/interactive/docs-archive/edit.js:674
+msgid "Book Type"
+msgstr ""
+
+#: build/blocks/interactive/docs-archive/index.js:1
+#: src/blocks/interactive/docs-archive/edit.js:684
+msgid "Publisher"
+msgstr ""
+
+#: build/blocks/interactive/docs-archive/index.js:1
+#: src/blocks/interactive/docs-archive/edit.js:698
+msgid "Person Filters"
+msgstr ""
+
+#: build/blocks/interactive/docs-archive/index.js:1
+#: src/blocks/interactive/docs-archive/edit.js:702
+msgid "Gender"
+msgstr ""
+
+#: build/blocks/interactive/docs-archive/index.js:1
+#: src/blocks/interactive/docs-archive/edit.js:730
+msgid "No items found."
+msgstr ""
+
+#: build/blocks/interactive/docs-archive/block.json
+#: src/blocks/interactive/docs-archive/block.json
+msgctxt "block title"
+msgid "Docs Archive"
+msgstr ""
+
+#: build/blocks/interactive/docs-archive/block.json
+#: src/blocks/interactive/docs-archive/block.json
+msgctxt "block description"
+msgid "Interactive documents archive with advanced filtering."
+msgstr ""
+
+#: build/blocks/interactive/docs-archive/block.json
+#: src/blocks/interactive/docs-archive/block.json
+msgctxt "block keyword"
+msgid "documents"
+msgstr ""
+
+#: build/blocks/interactive/docs-archive/block.json
+#: src/blocks/interactive/docs-archive/block.json
+msgctxt "block keyword"
+msgid "archive"
+msgstr ""
+
+#: build/blocks/interactive/docs-archive/block.json
+#: src/blocks/interactive/docs-archive/block.json
+msgctxt "block keyword"
+msgid "filter"
+msgstr ""
+
+#: build/blocks/interactive/docs-archive/block.json
+#: src/blocks/interactive/docs-archive/block.json
+msgctxt "block keyword"
+msgid "pagination"
+msgstr ""
+
+#: build/blocks/interactive/dropdown-menu-block/block.json
+#: src/blocks/interactive/dropdown-menu-block/block.json
+msgctxt "block title"
+msgid "Ncmaz Dropdown Menu"
+msgstr ""
+
+#: build/blocks/interactive/dropdown-menu-block/block.json
+#: src/blocks/interactive/dropdown-menu-block/block.json
+msgctxt "block description"
+msgid " A block that creates a dropdown menu."
+msgstr ""
+
+#: build/blocks/interactive/dropdown-menu-content-block/block.json
+#: src/blocks/interactive/dropdown-menu-content-block/block.json
+msgctxt "block title"
+msgid "Ncmaz Dropdown Menu Content"
+msgstr ""
+
+#: build/blocks/interactive/dropdown-menu-content-block/block.json
+#: src/blocks/interactive/dropdown-menu-content-block/block.json
+msgctxt "block description"
+msgid "A block that creates a dropdown menu content."
+msgstr ""
+
+#: build/blocks/interactive/dropdown-menu-content-block/block.json
+#: src/blocks/interactive/dropdown-menu-content-block/block.json
+msgctxt "block style label"
+msgid "Anchor Bottom"
+msgstr ""
+
+#: build/blocks/interactive/dropdown-menu-content-block/block.json
+#: src/blocks/interactive/dropdown-menu-content-block/block.json
+msgctxt "block style label"
+msgid "Anchor Top"
+msgstr ""
+
+#: build/blocks/interactive/dropdown-menu-item-block/block.json
+#: src/blocks/interactive/dropdown-menu-item-block/block.json
+msgctxt "block title"
+msgid "Ncmaz Dropdown Menu Item"
+msgstr ""
+
+#: build/blocks/interactive/dropdown-menu-item-block/block.json
+#: src/blocks/interactive/dropdown-menu-item-block/block.json
+msgctxt "block description"
+msgid "A block that creates a dropdown menu item."
+msgstr ""
+
+#: build/blocks/interactive/dropdown-menu-item-block/block.json
+#: src/blocks/interactive/dropdown-menu-item-block/block.json
+msgctxt "block style label"
+msgid "Default"
+msgstr ""
+
+#: build/blocks/interactive/dropdown-menu-item-block/block.json
+#: src/blocks/interactive/dropdown-menu-item-block/block.json
+msgctxt "block style label"
+msgid "None Hover"
+msgstr ""
+
+#: build/blocks/interactive/dropdown-menu-trigger-block/block.json
+#: src/blocks/interactive/dropdown-menu-trigger-block/block.json
+msgctxt "block title"
+msgid "Ncmaz Dropdown Menu Trigger"
+msgstr ""
+
+#: build/blocks/interactive/dropdown-menu-trigger-block/block.json
+#: src/blocks/interactive/dropdown-menu-trigger-block/block.json
+msgctxt "block description"
+msgid "A block that allows you to create a dropdown menu trigger."
 msgstr ""

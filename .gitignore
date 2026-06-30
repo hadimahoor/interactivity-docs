@@ -1,4 +1,4 @@
-# === Dependencies ===
+﻿# === Dependencies ===
 /vendor/
 /node_modules/
 
@@ -26,4 +26,5 @@
 *.log
 /error_log
 
-
+=== WP-CLI ===
+wp-cli.phar

@@ -21,5 +21,7 @@ class CliRegistrar
         }
 
         \WP_CLI::add_command('docs sync', Commands\SyncCommand::class);
+        \WP_CLI::add_command('docs schema', Commands\SchemaCommand::class);
+        \WP_CLI::add_command('docs verify', Commands\VerifyCommand::class);
     }
 }

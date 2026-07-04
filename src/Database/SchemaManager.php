@@ -39,6 +39,82 @@ final class SchemaManager
     }
 
     /**
+     * Drop all plugin tables.
+     *
+     * Drops tables in dependency order: junction tables first (to avoid foreign-key-like
+     * constraints in reporting/validation logic), then entity tables.
+     *
+     * @return void
+     */
+    public function dropTables(): void
+    {
+        global $wpdb;
+
+        // Junction tables first, then entity tables
+        $tables = [
+            TableNames::paperPerson(),
+            TableNames::bookPerson(),
+            TableNames::paper(),
+            TableNames::book(),
+            TableNames::person(),
+        ];
+
+        foreach ($tables as $table) {
+            // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared
+            $wpdb->query("DROP TABLE IF EXISTS {$table}");
+        }
+    }
+
+    /**
+     * Get all plugin table names keyed by logical name.
+     *
+     * @return array<string, string> Map of logical name => full table name
+     */
+    public function getTableNames(): array
+    {
+        return [
+            'paper'        => TableNames::paper(),
+            'book'         => TableNames::book(),
+            'person'       => TableNames::person(),
+            'paper_person' => TableNames::paperPerson(),
+            'book_person'  => TableNames::bookPerson(),
+        ];
+    }
+
+    /**
+     * Report existence and row count for each table.
+     *
+     * @return array<int, array{name: string, table: string, exists: bool, rows: int}>
+     */
+    public function getStatus(): array
+    {
+        global $wpdb;
+
+        $status = [];
+
+        foreach ($this->getTableNames() as $name => $table) {
+            $exists = (bool) $wpdb->get_var(
+                $wpdb->prepare('SHOW TABLES LIKE %s', $table)
+            );
+
+            $rows = 0;
+            if ($exists) {
+                // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared
+                $rows = (int) $wpdb->get_var("SELECT COUNT(*) FROM {$table}");
+            }
+
+            $status[] = [
+                'name'   => $name,
+                'table'  => $table,
+                'exists' => $exists,
+                'rows'   => $rows,
+            ];
+        }
+
+        return $status;
+    }
+
+    /**
      * Get the WordPress database charset and collation
      *
      * @return string Charset collation string (e.g., "DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci")

@@ -122,15 +122,14 @@ class RelationSyncService
         $relationRepo->beginTransaction();
 
         try {
-
         // Only attempt to delete if there were existing relations
-        if (!empty($oldPersonIds)) {
-            $deleteResult = $relationRepo->delete($postId);
-            
-            if ($deleteResult === false) {
-                throw new \RuntimeException("Failed to delete relations for post {$postId}");
+            if (!empty($oldPersonIds)) {
+                $deleteResult = $relationRepo->delete($postId);
+
+                if ($deleteResult === false) {
+                    throw new \RuntimeException("Failed to delete relations for post {$postId}");
+                }
             }
-        }
 
         // Insert new relations
 

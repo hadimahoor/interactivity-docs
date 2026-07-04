@@ -14,6 +14,7 @@ use InteractivityDocs\Sync\RelationSyncService;
 use InteractivityDocs\Sync\SyncCoordinator;
 use InteractivityDocs\Rest\Routes\RouteRegistrar;
 use InteractivityDocs\Integration\AcfManager;
+use InteractivityDocs\Cli\CliRegistrar;
 
 defined('ABSPATH') || exit;
 
@@ -30,6 +31,7 @@ final class Plugin
     private SyncCoordinator $syncCoordinator;
     private RouteRegistrar $routeRegistrar;
     private AcfManager $acfManager;
+    private CliRegistrar $cliRegistrar;
     public function __construct()
     {
         /** @var \wpdb $wpdb */
@@ -45,6 +47,7 @@ final class Plugin
         $this->blockRegistrar = new BlockRegistrar();
         $this->routeRegistrar = new RouteRegistrar($wpdb);
         $this->acfManager = new AcfManager();
+        $this->cliRegistrar = new CliRegistrar();
     }
 
     /**
@@ -71,5 +74,6 @@ final class Plugin
         $this->routeRegistrar->registerHooks();
         $this->syncCoordinator->init();
         $this->acfManager->register();
+        $this->cliRegistrar->register();
     }
 }

@@ -26,5 +26,8 @@
 *.log
 /error_log
 
-=== WP-CLI ===
+# === WP-CLI ===
 wp-cli.phar
+
+# === PHPUnit ===
+.phpunit.result.cache

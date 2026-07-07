@@ -6,7 +6,7 @@ namespace InteractivityDocs\Sync;
 
 use InteractivityDocs\Sync\PostSyncManager;
 use InteractivityDocs\Sync\RelationSyncService;
-use InteractivityDocs\Repository\RepositoryFactory;
+use InteractivityDocs\Repository\RepositoryFactoryInterface;
 use Psr\Log\LoggerInterface;
 
 defined('ABSPATH') || exit;
@@ -27,7 +27,7 @@ class SyncCoordinator
 {
     private PostSyncManager $postSyncManager;
     private RelationSyncService $relationSyncService;
-    private RepositoryFactory $repositoryFactory;
+    private RepositoryFactoryInterface $repositoryFactory;
     private ?LoggerInterface $logger;
 
     /**
@@ -54,7 +54,7 @@ class SyncCoordinator
         'book_person' => 'book'
     ];
 
-    public function __construct(PostSyncManager $postSyncManager, RelationSyncService $relationSyncService, RepositoryFactory $repositoryFactory, ?LoggerInterface $logger = null)
+    public function __construct(PostSyncManager $postSyncManager, RelationSyncService $relationSyncService, RepositoryFactoryInterface $repositoryFactory, ?LoggerInterface $logger = null)
     {
         $this->postSyncManager = $postSyncManager;
         $this->relationSyncService = $relationSyncService;

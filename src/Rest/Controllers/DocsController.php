@@ -8,7 +8,7 @@ use WP_Error;
 use WP_REST_Request;
 use WP_REST_Response;
 use InteractivityDocs\Repository\PostRepositoryInterface;
-use InteractivityDocs\Repository\RepositoryFactory;
+use InteractivityDocs\Repository\RepositoryFactoryInterface;
 use InteractivityDocs\Rest\Config\ApiConfig;
 use InteractivityDocs\Rest\Config\SortConfig;
 
@@ -22,7 +22,7 @@ defined('ABSPATH') || exit;
 final class DocsController
 {
     public function __construct(
-        private readonly RepositoryFactory $repositoryFactory
+        private readonly RepositoryFactoryInterface $repositoryFactory
     ) {
     }
 

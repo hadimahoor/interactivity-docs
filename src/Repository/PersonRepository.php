@@ -145,6 +145,15 @@ class PersonRepository extends BasePostRepository
         $countColumn    = $postType . '_count';
         $postColumn     = $postType . '_id';
 
+
+        // // Guard: Ensure all IDs are positive integers
+        // foreach ($personIds as $id) {
+        //     if (!is_int($id) || $id <= 0) {
+        //         error_log("Invalid person ID passed to recalculateCounts: " . var_export($id, true));
+        //         throw new \InvalidArgumentException('Person IDs must be positive integers');
+        //     }
+        // }
+
         // Sanitize IDs to integers and build a safe placeholder list
         $idsPlaceholder = implode(',', array_map('intval', $personIds));
 

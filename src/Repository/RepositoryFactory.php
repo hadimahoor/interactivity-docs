@@ -17,7 +17,7 @@ defined('ABSPATH') || exit;
  * @package InteractivityDocs\Repository
  * @since 1.0.0
  */
-final class RepositoryFactory
+final class RepositoryFactory implements RepositoryFactoryInterface
 {
     private \wpdb $db;
 
@@ -68,7 +68,7 @@ final class RepositoryFactory
      * @return RelationRepository
      * @throws \InvalidArgumentException If relation type is invalid
      */
-    public function createRelationRepository(string $type): RelationRepository
+    public function createRelationRepository(string $type): RelationRepositoryInterface
     {
         return match ($type) {
             'paper_person' => new RelationRepository(

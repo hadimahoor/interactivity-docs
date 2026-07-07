@@ -11,7 +11,7 @@ defined('ABSPATH') || exit;
  *
  * Generic repository for managing many-to-many relationships between entities.
  * Can be used for paper-person, book-person, or any other junction table.
- *
+ *  
  * @package InteractivityDocs\Repository
  * @since 1.0.0
  */

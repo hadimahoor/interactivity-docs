@@ -66,4 +66,19 @@ interface RelationRepositoryInterface
      * @return int[] Array of person IDs
      */
     public function getPersonIdsForObject(int $postId): array;
+
+        /**
+     * Begin a database transaction.
+     */
+    public function beginTransaction(): void;
+
+    /**
+     * Commit the current database transaction.
+     */
+    public function commit(): void;
+
+    /**
+     * Roll back the current database transaction.
+     */
+    public function rollback(): void;
 }

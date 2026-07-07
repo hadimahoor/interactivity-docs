@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace InteractivityDocs\Sync;
 
-use InteractivityDocs\Repository\RepositoryFactory;
+use InteractivityDocs\Repository\RepositoryFactoryInterface;
 use InteractivityDocs\Models\BaseEntity;
 use InteractivityDocs\Models\Paper;
 use InteractivityDocs\Models\Book;
@@ -23,7 +23,7 @@ defined('ABSPATH') || exit;
  */
 class PostSyncManager
 {
-    private RepositoryFactory $repositoryFactory;
+    private RepositoryFactoryInterface $repositoryFactory;
     private ?LoggerInterface $logger;
 
     /**
@@ -31,7 +31,7 @@ class PostSyncManager
      */
     private const SUPPORTED_POST_TYPES = ['paper', 'book', 'person'];
 
-    public function __construct(RepositoryFactory $repositoryFactory, ?LoggerInterface $logger = null)
+    public function __construct(RepositoryFactoryInterface $repositoryFactory, ?LoggerInterface $logger = null)
     {
         $this->repositoryFactory = $repositoryFactory;
         $this->logger = $logger;

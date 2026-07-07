@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace InteractivityDocs\Sync;
 
-use InteractivityDocs\Repository\RepositoryFactory;
+use InteractivityDocs\Repository\RepositoryFactoryInterface;
 use InteractivityDocs\Repository\PersonRepository;
-use InteractivityDocs\Repository\RelationRepository;
+use InteractivityDocs\Repository\RelationRepositoryInterface;
 use Psr\Log\LoggerInterface;
 
 defined('ABSPATH') || exit;
@@ -20,7 +20,7 @@ defined('ABSPATH') || exit;
  */
 class RelationSyncService
 {
-    private RepositoryFactory $repositoryFactory;
+    private RepositoryFactoryInterface $repositoryFactory;
     private ?LoggerInterface $logger;
 
     /**
@@ -28,7 +28,7 @@ class RelationSyncService
      */
     private const VALID_POST_TYPES = ['paper', 'book'];
 
-    public function __construct(RepositoryFactory $repositoryFactory, ?LoggerInterface $logger = null)
+    public function __construct(RepositoryFactoryInterface $repositoryFactory, ?LoggerInterface $logger = null)
     {
         $this->repositoryFactory = $repositoryFactory;
         $this->logger = $logger;
@@ -63,7 +63,7 @@ class RelationSyncService
             $personRepo = $this->getPersonRepository();
 
             // Detect changes (delta)
-            $oldPersonIds = $relationRepo->getPersonIdsForObject($postId);
+            $oldPersonIds = $relationRepo->getPersonIdsForObject($postId);  
             $newPersonIds = $this->normalizeIds($newPersonIds);
 
             // Calculate diff for logging and optimization
@@ -117,7 +117,7 @@ class RelationSyncService
      * @return void
      * @throws \Throwable Re-thrown after rollback so the caller can react.
      */
-    private function updateRelations(RelationRepository $relationRepo, int $postId, array $oldPersonIds, array $newPersonIds): void
+    private function updateRelations(RelationRepositoryInterface $relationRepo, int $postId, array $oldPersonIds, array $newPersonIds): void
     {
         $relationRepo->beginTransaction();
 
@@ -188,16 +188,20 @@ class RelationSyncService
      * @param string $postType
      * @return RelationRepository
      */
-    private function getRelationRepository(string $postType): RelationRepository
+    private function getRelationRepository(string $postType): RelationRepositoryInterface
     {
         $relationName = $postType . '_person';
-        $repo = $this->repositoryFactory->createRelationRepository($relationName);
-        if (!$repo) {
-            throw new \RuntimeException("Failed to create relation repository for: {$relationName}");
+        try {
+            return $this->repositoryFactory->createRelationRepository($relationName);
+        } catch (\Throwable $e) {
+            throw new \RuntimeException(
+                "Failed to create relation repository for: {$relationName}",
+                0,
+                $e
+            );
         }
-
-        return $repo;
     }
+
 
     /**
      * Gets the person repository.

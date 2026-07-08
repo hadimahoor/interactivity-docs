@@ -39,6 +39,31 @@ Navigate through large result sets with reactive, no-reload pagination.
 
 ![Docs Archive pagination](.github/assets/archive-pagination.jpg)
 
+### Block Editor
+
+The **Docs Archive** block is configured entirely from the WordPress editor sidebar — no code required. Controls adapt to the selected content type, exposing only the filters relevant to papers, books, or people.
+
+#### General settings
+
+- **Content Type** — Switch between Papers, Books, or People. This drives which filter panels appear and which card template renders on the front end.
+- **Items per page** — Set how many items show per page (1–100), wired directly into the reactive pagination.
+- **Show metadata** — Toggle date, author, and counter visibility on each card.
+
+#### Filter panels
+
+Context-aware panels surface taxonomy filters based on the chosen content type:
+
+- **Paper Filters** — Year and Language multi-select lists, plus any ACF-driven taxonomies.
+- **Book Filters** — Book-specific taxonomies such as genre or publisher.
+- **Person Filters** — People-specific taxonomies such as role or department.
+
+#### Search & scroll for long lists
+
+When a taxonomy has more than five terms, a search input appears above the checkbox list and the list scrolls within a fixed max-height — keeping the sidebar compact and quick to navigate.
+
+![Docs Archive block editor controls](.github/assets/block-editor-controls.jpg)
+
+
 
 ## Requirements
 

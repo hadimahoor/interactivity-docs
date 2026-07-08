@@ -54,8 +54,12 @@ class SyncCoordinator
         'book_person' => 'book'
     ];
 
-    public function __construct(PostSyncManager $postSyncManager, RelationSyncService $relationSyncService, RepositoryFactoryInterface $repositoryFactory, ?LoggerInterface $logger = null)
-    {
+    public function __construct(
+        PostSyncManager $postSyncManager,
+        RelationSyncService $relationSyncService,
+        RepositoryFactoryInterface $repositoryFactory,
+        ?LoggerInterface $logger = null
+    ) {
         $this->postSyncManager = $postSyncManager;
         $this->relationSyncService = $relationSyncService;
         $this->repositoryFactory = $repositoryFactory;

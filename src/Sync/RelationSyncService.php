@@ -63,7 +63,7 @@ class RelationSyncService
             $personRepo = $this->getPersonRepository();
 
             // Detect changes (delta)
-            $oldPersonIds = $relationRepo->getPersonIdsForObject($postId);  
+            $oldPersonIds = $relationRepo->getPersonIdsForObject($postId);
             $newPersonIds = $this->normalizeIds($newPersonIds);
 
             // Calculate diff for logging and optimization

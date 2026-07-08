@@ -34,10 +34,11 @@ Responsive card layout that adapts to each post type (papers, books, people).
 
 ![Docs Archive card layout](.github/assets/archive-cards.jpg)
 
-### Sorting
-Sort results on the fly without a full page reload.
+### Pagination
+Navigate through large result sets with reactive, no-reload pagination.
 
-![Docs Archive sorting](.github/assets/archive-sorting.jpg)
+![Docs Archive pagination](.github/assets/archive-pagination.jpg)
+
 
 ## Requirements
 

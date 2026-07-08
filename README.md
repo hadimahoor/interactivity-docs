@@ -20,6 +20,25 @@ A WordPress plugin that powers a reactive, filterable documentation archive usin
 
 ---
 
+## Screenshots
+
+The **Docs Archive** block in action — a fully reactive, framework-free UI built on the WordPress Interactivity API.
+
+### Multilingual filters
+Filter documents by taxonomy terms with instant, client-side updates.
+
+![Docs Archive filters](.github/assets/archive-filters.jpg)
+
+### Card-based results
+Responsive card layout that adapts to each post type (papers, books, people).
+
+![Docs Archive card layout](.github/assets/archive-cards.jpg)
+
+### Sorting
+Sort results on the fly without a full page reload.
+
+![Docs Archive sorting](.github/assets/archive-sorting.jpg)
+
 ## Requirements
 
 | Requirement | Version |

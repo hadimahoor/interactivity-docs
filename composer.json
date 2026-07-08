@@ -38,6 +38,8 @@
     "prefer-stable": true,
     "scripts": {
         "lint": "phpcs",
-        "lint:fix": "phpcbf"
+        "lint:fix": "phpcbf",
+        "test": "phpunit",
+        "test:coverage": "phpunit --coverage-html coverage"
     }
 }

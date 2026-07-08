@@ -1,8 +1,6 @@
 # Interactivity Docs
 
-A WordPress plugin that powers a reactive, filterable documentation archive
-using the native **WordPress Interactivity API** — no React, no extra framework
-on the front end.
+A WordPress plugin that powers a reactive, filterable documentation archive using the native **WordPress Interactivity API** — no React, no extra framework on the front end.
 
 [![WordPress](https://img.shields.io/badge/WordPress-%E2%89%A56.5-blue?logo=wordpress)](https://wordpress.org)
 [![PHP](https://img.shields.io/badge/PHP-%E2%89%A58.0-777bb4?logo=php)](https://php.net)
@@ -12,25 +10,13 @@ on the front end.
 
 ## Highlights
 
-- **Reactive UI without a framework** — built on the WordPress Interactivity API
-  (store, context, actions, callbacks). Zero front-end framework dependency.
-- **Strategy-based filter pipeline** — `clientStrategy`, `serverStrategy`,
-  `singlePageStrategy`, and `sortStrategy` swap at runtime; the view layer stays
-  free of conditional branching.
-- **Composable state layer** — state is split into focused getter modules
-  (`composeState`, `layoutState`, `menuState`, `selectorState`, `sortState`,
-  `uiState`), each with a single responsibility.
-- **Repository + Sync architecture** — typed repositories
-  (`BookRepository`, `PaperRepository`, `PersonRepository`,
-  `RelationRepository`) behind interfaces, with a `SyncCoordinator` keeping
-  post data and relations in sync.
-- **Custom REST layer** — dedicated controller, routes, and config
-  (`DocsController`, `DocsRoutes`, `ApiConfig`, `SortConfig`) power
-  server-side filtering, sorting, and pagination.
-- **ACF as code** — all field groups live in `acf-json/` and are
-  version-controlled. Schema is in the repo, not the database.
-- **Zero runtime Composer dependency** — a fallback PSR-4 autoloader runs when
-  `vendor/` is absent, so the distributed ZIP installs without Composer.
+- **Reactive UI without a framework** — built on the WordPress Interactivity API (store, context, actions, callbacks). Zero front-end framework dependency.
+- **Strategy-based filter pipeline** — `clientStrategy`, `serverStrategy`, `singlePageStrategy`, and `sortStrategy` swap at runtime; the view layer remains free of conditional branching.
+- **Composable state layer** — state is split into focused getter modules (`composeState`, `layoutState`, `menuState`, `selectorState`, `sortState`, `uiState`), each with a single responsibility.
+- **Repository + Sync architecture** — typed repositories (`BookRepository`, `PaperRepository`, `PersonRepository`, `RelationRepository`) behind interfaces, with a `SyncCoordinator` keeping post data and relations in sync.
+- **Custom REST layer** — dedicated controller, routes, and config (`DocsController`, `DocsRoutes`, `ApiConfig`, `SortConfig`) power server-side filtering, sorting, and pagination.
+- **ACF as code** — all field groups live in `acf-json/` and are version-controlled. Schema is in the repo, not the database.
+- **Zero runtime Composer dependency** — a fallback PSR-4 autoloader runs when `vendor/` is absent, ensuring the distributed ZIP works standalone.
 
 ---
 
@@ -42,34 +28,83 @@ on the front end.
 | PHP | ≥ 8.0 |
 | Advanced Custom Fields (ACF) | ≥ 6.0 (free or Pro) |
 
-> WordPress 6.5+ handles the ACF dependency automatically via the
-> `Requires Plugins: advanced-custom-fields` plugin header.
+> WordPress 6.5+ handles the ACF dependency automatically via the `Requires Plugins: advanced-custom-fields` plugin header.
 
 ---
 
 ## Installation
 
 ### End-user (ZIP)
-
-1. Download the latest `interactivity-docs.zip` from
-   [Releases](https://github.com/hadimahoor/interactivity-docs/releases).
-2. In WordPress admin go to **Plugins → Add New → Upload Plugin**.
+1. Download the latest `interactivity-docs.zip` from [Releases](https://github.com/hadimahoor/interactivity-docs/releases).
+2. In WordPress admin, go to **Plugins → Add New → Upload Plugin**.
 3. Upload the ZIP and click **Activate**.
-4. Make sure **Advanced Custom Fields** is installed and active.
-
-> Composer is not required. The ZIP ships with pre-built assets and a
-> bundled fallback autoloader.
+4. Ensure **Advanced Custom Fields** is installed and active.
 
 ### Developer (Clone)
 ```bash
-git clone https://github.com/hadimahoor/interactivity-docs.git \
-  wp-content/plugins/interactivity-docs
-
+git clone https://github.com/hadimahoor/interactivity-docs.git wp-content/plugins/interactivity-docs
 cd wp-content/plugins/interactivity-docs
-
 composer install   # dev tools only (phpcs) — not needed at runtime
 npm install
 npm run build
+
+---
+
+## Architecture
+
+text
+interactivity-docs/
+├── interactivity-docs.php          # Plugin bootstrap
+├── composer.json / package.json
+├── phpcs.xml.dist                  # PSR-12, line limit 180
+├── acf-json/                       # Version-controlled ACF groups
+├── build/                          # Compiled assets
+├── src/
+│   ├── BlockManager/               # Block registration
+│   ├── Cli/                        # WP-CLI integration
+│   │   ├── CliRegistrar.php
+│   │   └── Commands/               # Sync, Schema, Verify commands
+│   ├── Database/                   # Schema management
+│   ├── Integration/                # ACF helpers
+│   ├── Models/                     # Entity definitions (Book, Paper, Person)
+│   ├── Repository/                 # Data access (Interface + Implementation)
+│   ├── Rest/                       # REST API endpoints & configs
+│   ├── Sync/                       # Data synchronization logic
+│   └── blocks/                     # Interactivity API blocks
+├── tests/                          # PHPUnit + Mockery suite
+└── phpunit.xml.dist                # Testing configuration
+
+---
+
+## Advanced Features
+
+### WP-CLI Integration
+The plugin ships with robust WP-CLI commands for managing custom relational tables.
+
+bash
+# Sync supported post types (person → paper → book)
+wp docs sync --all
+
+# Sync a single post type
+wp docs sync --post-type=book
+
+# Sync specific posts by ID
+wp docs sync --post-ids=123,456,789
+
+# Dry run mode (preview without writing)
+wp docs sync --all --dry-run
+
+| Command | Purpose |
+|---|---|
+| `wp docs sync` | Sync posts into custom tables |
+| `wp docs schema` | Manage custom table schema (create/drop/reset) |
+| `wp docs verify` | Verify data integrity between sources |
+
+### Quality Assurance
+- **Unit tests** covering the Repository layer (CRUD, validation).
+- **Mockery** used for isolating `$wpdb` and external dependencies.
+- **PSR-4 + strict types** throughout, enabling clean dependency injection.
+- **CI-ready** via automated Composer scripts.
 
 ---
 
@@ -77,192 +112,22 @@ npm run build
 
 | Command | Description |
 |---|---|
-| `npm run build` | Production build (minified) |
-| `npm run start` | Development watch mode |
-| `npm run lint:js` | ESLint via `@wordpress/scripts` |
-| `npm run format` | Prettier formatting |
-| `composer lint` | PHP_CodeSniffer — PSR-12, line limit 180 |
-
----
-
-## Architecture
-
-
-interactivity-docs/
-├── interactivity-docs.php          # Bootstrap: headers, constants, hybrid autoloader
-├── composer.json / composer.lock
-├── package.json / package-lock.json
-├── phpcs.xml.dist                  # PSR-12, line limit 180
-├── README.md / readme.txt
-├── acf-json/                       # ACF Local JSON (version-controlled field groups)
-├── build/                          # Compiled assets (JS/CSS, shipped in ZIP)
-├── data/
-├── languages/                      # i18n .pot/.po/.mo files
-└── src/
-├── Plugin.php                  # Orchestrator — boots all services (DI)
-│
-├── BlockManager/
-│   └── BlockRegistrar.php
-│
-├── Database/
-│   ├── SchemaManager.php
-│   └── TableNames.php
-│
-├── Integration/
-│   └── AcfManager.php           # ACF paths + dependency notice
-│
-├── Models/
-│   ├── BaseEntity.php
-│   ├── Book.php
-│   ├── Paper.php
-│   └── Person.php
-│
-├── PostTypes/
-│   └── PostTypeRegistrar.php
-│
-├── Repository/
-│   ├── BasePostRepository.php
-│   ├── BaseRepository.php
-│   ├── BookRepository.php
-│   ├── PaperRepository.php
-│   ├── PersonRepository.php
-│   ├── PostRepositoryInterface.php
-│   ├── RelationRepository.php
-│   ├── RelationRepositoryInterface.php
-│   ├── RepositoryFactory.php
-│   └── RepositoryInterface.php
-│
-├── Rest/
-│   ├── Config/
-│   │   ├── ApiConfig.php
-│   │   └── SortConfig.php
-│   ├── Controllers/
-│   │   └── DocsController.php
-│   └── Routes/
-│       ├── DocsRoutes.php
-│       └── RouteRegistrar.php
-│
-├── Support/
-│   ├── TemplateLoader.php
-│   └── UIHelpers.php
-│
-├── Sync/
-│   ├── PostSyncManager.php
-│   ├── RelationSyncService.php
-│   └── SyncCoordinator.php
-│
-├── Taxonomies/
-│   └── TaxonomyRegistrar.php
-│
-└── blocks/
-└── interactive/
-├── non-interactive/
-└── docs-archive/
-├── block.json
-├── index.js            # Block editor entrypoint
-├── edit.js             # Block editor UI
-├── view.js             # Front-end Interactivity API entrypoint
-├── render.php          # Server-side render
-├── style.scss / editor.scss
-├── README.md
-│
-├── actions/            # Store actions
-│   ├── core.js
-│   ├── menuActions.js
-│   ├── paginationAction.js
-│   ├── removeFilterAction.js
-│   ├── selectFilterAction.js
-│   └── termAction.js
-│
-├── callbacks/          # Interactivity API lifecycle callbacks
-│   ├── lifecycleCallbacks.js
-│   └── menuCallbacks.js
-│
-├── pagination/
-│   └── pagination.js
-│
-├── pipeline/           # Filter execution pipeline
-│   ├── pipeline.js
-│   ├── clientPipeline.js
-│   └── serverPipeline.js
-│
-├── request/
-│   └── request.js      # REST request layer
-│
-├── state/              # Reactive state modules
-│   ├── context.js
-│   ├── loading.js
-│   ├── menu.js
-│   ├── singlePage.js
-│   └── getters/
-│       ├── composeState.js
-│       ├── layoutState.js
-│       ├── menuState.js
-│       ├── selectorState.js
-│       ├── sortState.js
-│       └── uiState.js
-│
-├── strategies/         # Runtime filter strategies (Strategy Pattern)
-│   ├── strategies.js
-│   ├── clientStrategy.js
-│   ├── serverStrategy.js
-│   ├── singlePageStrategy.js
-│   └── sortStrategy.js
-│
-├── cache/
-│   └── cache.js
-│
-├── style/              # SCSS partials
-│   ├── _baseline.scss
-│   ├── _card-default.scss
-│   ├── _card-person.scss
-│   ├── _docs-list.scss
-│   ├── _filters.scss
-│   └── _pagination.scss
-│
-├── templates/          # PHP render templates
-│   ├── cards/
-│   │   ├── card-book.php
-│   │   ├── card-default.php
-│   │   ├── card-person.php
-│   │   └── card-post.php
-│   ├── components/
-│   │   ├── book-cover.php
-│   │   ├── like-button.php
-│   │   ├── person-actions.php
-│   │   ├── person-counters.php
-│   │   ├── post-actions.php
-│   │   ├── save-button.php
-│   │   └── taxonomies.php
-│   └── layout/
-│       ├── docs-list.php
-│       ├── filters.php
-│       └── pagination.php
-│
-├── dropdown-menu-block/         # TS-based menu blocks
-│   ├── block.json
-│   ├── edit.tsx / save.tsx / index.tsx
-│   ├── view.ts
-│   └── style.scss / editor.scss
-├── dropdown-menu-content-block/
-├── dropdown-menu-item-block/
-└── dropdown-menu-trigger-block/
+| `composer install` | Install dev dependencies |
+| `composer lint` | Run PHPCS (PSR-12) |
+| `composer lint:fix` | Auto-fix with PHPCBF |
+| `composer test` | Run PHPUnit suite |
+| `composer test:coverage` | Generate coverage report |
+| `npm run build` | Compile production assets |
 
 ---
 
 ## Key Design Decisions
 
-- **Zero runtime Composer dependency** — a fallback PSR-4 autoloader in the
-  bootstrap handles class loading when `vendor/` is absent (production ZIP).
-- **Strategy pattern** — the filter strategy is selected once at init; the
-  pipeline calls a unified interface regardless of execution context
-  (client, server, single-page, sort).
-- **Repository + Factory** — `RepositoryFactory` resolves typed repositories
-  behind shared interfaces, isolating data access from REST controllers.
-- **Composable state** — each state getter module owns one concern and is
-  combined in `composeState.js`, keeping `view.js` declarative.
-- **ACF Local JSON** — field group schema lives in `acf-json/` and travels with
-  the repo. No manual DB export/import across environments.
+- **Zero runtime Composer dependency** — a fallback PSR-4 autoloader in `Plugin.php` handles class loading when `vendor/` is absent.
+- **Strategy pattern** — the filter strategy is selected at init; the pipeline calls a unified interface regardless of execution context (client, server, single-page, sort).
+- **Repository + Factory** — `RepositoryFactory` resolves typed repositories behind shared interfaces, isolating data access from REST controllers.
+- **Composable state** — each state getter module owns one concern and is combined in `composeState.js`.
+- **ACF Local JSON** — field group schema lives in `acf-json/` and travels with the repo.
 
 ---
 
@@ -270,8 +135,4 @@ interactivity-docs/
 
 [GPL-2.0-or-later](https://www.gnu.org/licenses/gpl-2.0.html)
 
----
-
 *Built by [Hadi Khodayari](https://github.com/hadimahoor)*
-
-
